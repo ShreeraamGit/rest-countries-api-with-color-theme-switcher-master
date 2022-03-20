@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>REst API Countries</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/index.4d663569.css">
+  </head>
+  <body class="font-main">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <header class="font-bold text-white bg-dark-blue fixed top-0 left-0 right-0 z-10 flex h-24 w-full flex-row items-center justify-between px-4 lg:px-6">
+      <div class="nav-logo">
+        <a class="cursor-pointer text-sm lg:text-xl xl:text-2xl" href="#main">Where in world?</a>
+      </div>
+      <div class="flex flex-row">
+        <svg class="w-5 h-5 lg:w-6 lg:h-6 mr-4 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewbox="0 0 32 32">
+          <path d="M16.10999,31.5c7.60004,0,14.06-5.42999,15.37-12.91003c0.10004-0.58997-0.14996-1.17999-0.64996-1.51001C30.33002,16.75,29.69,16.75,29.19,17.07001c-1.66998,1.07996-3.60999,1.64996-5.59998,1.64996c-5.68005,0-10.31-4.63-10.31-10.31c0-1.98999,0.56995-3.92999,1.64996-5.59998C15.25,2.31,15.25,1.66998,14.91998,1.16998c-0.32996-0.5-0.92999-0.75-1.51001-0.65002C5.92999,1.82996,0.5,8.28998,0.5,15.89001C0.5,24.5,7.5,31.5,16.10999,31.5z"></path>
+        </svg>
+        <svg class="w-5 h-5 lg:w-6 lg:h-6 mr-4 hidden text-white" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" fill="currentColor" viewbox="0 0 32 32">
+          <circle cx="16" cy="16" r="9"></circle>
+          <path d="M17.5 4.13867V2c0-.82813-.67139-1.5-1.5-1.5S14.5 1.17188 14.5 2v2.13867c0 .82813.67139 1.5 1.5 1.5S17.5 4.9668 17.5 4.13867zM8.67383 8.67285c.58545-.58594.58545-1.53613-.00049-2.12109L7.16113 5.04004c-.58594-.58594-1.53564-.58594-2.12158 0C4.4541 5.62598 4.4541 6.57617 5.04004 7.16113l1.51221 1.51172C6.84521 8.96582 7.229 9.1123 7.61279 9.1123S8.38086 8.96582 8.67383 8.67285zM2 17.5h2.13818c.82861 0 1.5-.67188 1.5-1.5s-.67139-1.5-1.5-1.5H2c-.82861 0-1.5.67188-1.5 1.5S1.17139 17.5 2 17.5zM5.03955 26.95996c.29297.29297.67725.43945 1.06104.43945s.76758-.14648 1.06055-.43945l1.51221-1.51172c.58594-.58496.58594-1.53516.00049-2.12109-.58594-.58594-1.53564-.58594-2.12158 0l-1.51221 1.51172C4.4541 25.42383 4.4541 26.37402 5.03955 26.95996zM14.5 27.86133V30c0 .82813.67139 1.5 1.5 1.5s1.5-.67188 1.5-1.5v-2.13867c0-.82813-.67139-1.5-1.5-1.5S14.5 27.0332 14.5 27.86133zM24.83887 26.95996c.29297.29297.67676.43945 1.06055.43945s.76758-.14648 1.06055-.43945c.58594-.58594.58594-1.53516 0-2.12109l-1.51172-1.51172c-.58594-.58594-1.53516-.58594-2.12109 0s-.58594 1.53516 0 2.12109L24.83887 26.95996zM30 14.5h-2.13867c-.82813 0-1.5.67188-1.5 1.5s.67188 1.5 1.5 1.5H30c.82813 0 1.5-.67188 1.5-1.5S30.82813 14.5 30 14.5zM26.95996 5.04004c-.58594-.58594-1.53516-.58594-2.12109 0l-1.51172 1.51172c-.58594.58594-.58594 1.53516 0 2.12109.29297.29297.67676.43945 1.06055.43945s.76758-.14648 1.06055-.43945l1.51172-1.51172C27.5459 6.5752 27.5459 5.62598 26.95996 5.04004z"></path>
+        </svg>
+        <h1 class="cursor-pointer text-base lg:text-xl xl:text-2xl">Dark Mode</h1>
+        <h1 class="hidden cursor-pointer text-base lg:text-xl xl:text-2xl">Light Mode</h1>
+      </div>
+    </header>
+    <main class="main-page bg-v-dark-blue-dark mt-0 min-h-screen p-4 lg:px-10">
+      <div class="searchbar-filter mt-28 flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <div class="search-bar">
+          <label for="search a country">
+            <input class="bg-dark-blue text-white border-none rounded-md h-10 lg:h-12 w-full px-14" type="search" id="site-search" name="q" placeholder="Search for a country">
+          </label>
+        </div>
+        <div class="filter-bar relative mt-10 lg:mt-0 inline-block text-left">
+          <div>
+            <button type="button" class="button-filter h-10 lg:h-12 inline-flex bg-dark-blue justify-center items-center w-3/5 lg:w-full rounded-md border-none border-gray-300 shadow-sm px-4 py-2 text-sm lg:text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+              Filter by Region
+              <!-- Heroicon name: solid/chevron-down -->
+              <svg class="-mr-1 ml-10 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="origin-top-right hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-dark-blue ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+            <div class="list-menu py-1" role="none">
+              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+              <a href="#" class="text-white block px-4 py-1 text-sm lg:text-base" role="menuitem" tabindex="-1" id="africa" value="africa">Africa</a>
+              <a href="#" class="text-white block px-4 py-1 text-sm lg:text-base" role="menuitem" tabindex="-1" id="america" value="america">America</a>
+              <a href="#" class="text-white block px-4 py-1 text-sm lg:text-base" role="menuitem" tabindex="-1" id="asia" value="asia">Asia</a>
+              <a href="#" class="text-white block px-4 py-1 text-sm lg:text-base" role="menuitem" tabindex="-1" id="europe" value="europe">Europe</a>
+              <a href="#" class="text-white block px-4 py-1 text-base" role="menuitem" tabindex="-1" id="ocenia" value="ocenia">Oceania</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="country-details-box mt-14 h-fit w-full px-6 flex flex-col lg:flex-row lg:flex-wrap lg:justify-around">
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+        <a href="/details.html" value="germany">
+          <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+            <div class="country-flag h-2/4">
+              <img class="h-full w-full rounded-t-md" src="https://flagcdn.com/w320/td.png" alt="${data.altSpellings[1]}-flag">
+            </div>
+            <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
+              <div class="text-white font-bold text-xl">Oriental Republic of Uruguay</div>
+              <div class="mt-5 text-white text-sm">Population: 81,770,900</div>
+              <div class="text-white mt-2 text-sm">Region: Europe</div>
+              <div class="text-white mt-2 text-sm">Capital: Berlin</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+    <!--<script type="module" src="/src/js/controller.js" async defer></script>-->
+  <script src="/rest-countries-api-with-color-theme-switcher-master.59712999.js"></script></body>
+</html>
