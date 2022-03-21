@@ -60,27 +60,95 @@
       </div>
     </header>
     <main class="main-page bg-v-dark-blue-dark mt-0 min-h-screen p-4 lg:px-10">
-      <div class="button-back mt-28"></div>
-      <a href="index.html">
-        <button
-          class="border-none drop-shadow-lg w-2/6 lg:w-1/6 xl:w-40 2xl:w-44 bg-dark-blue"
+      <div class="button-back mt-28">
+        <a href="index.html">
+          <button
+            class="border-none drop-shadow-lg w-2/6 lg:w-1/6 xl:w-40 2xl:w-44 bg-dark-blue"
+          >
+            <div class="arrow-left-content p-1 flex flex-row justify-around">
+              <svg
+                class="h-5 w-5 text-white"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+              >
+                <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                  d="M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z"
+                />
+              </svg>
+              <h1 class="left-title text-white">Back</h1>
+            </div>
+          </button>
+        </a>
+      </div>
+      <div
+        class="country-details flex flex-col border border-black h-fit w-full mt-14"
+      >
+        <div class="country-flag">
+          <img
+            class="h-full w-full rounded-t-md"
+            src="https://flagcdn.com/w320/td.png"
+            alt="${data.altSpellings[1]}-flag"
+          />
+        </div>
+        <div
+          class="country-details-content text-white border border-black mt-14"
         >
-          <div class="arrow-left-content p-1 flex flex-row justify-around">
-            <svg
-              class="h-5 w-5 text-white"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-              <path
-                d="M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z"
-              />
-            </svg>
-            <h1 class="left-title text-white">Back</h1>
+          <h1 class="country-name lg:mb-0">Germany</h1>
+          <div class="both-content">
+            <div class="content-1 mt-8 lg:mt-0">
+              <h1 class="nativ-name mb-3">Native Name: Germany</h1>
+              <h1 class="Population mb-3">Population: 11,319,551</h1>
+              <h1 class="Region mb-3">Region: Europe</h1>
+              <h1 class="Sub-region mb-3">Sub Region: Western Europe</h1>
+              <h1 class="Capital mb-3">Capital: Berlin</h1>
+            </div>
+            <div class="content-2 mt-8 lg:mt-0">
+              <h1 class="domain mb-3">Top Level Domain: .de</h1>
+              <h1 class="Currencies mb-3">Currencies: Euro</h1>
+              <h1 class="languages mb-3">Languages: German, French</h1>
+            </div>
           </div>
-        </button>
-      </a>
+          <div class="border-countries mt-8 mb-8 lg:mt-0 flex flex-col">
+            <h1 class="border-title">Border Countries:</h1>
+            <div
+              class="countries-list flex flex-row flex-wrap justify-between mt-5 lg:mt-0"
+            >
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                France
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Poland
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Belgium
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Swiss
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Chezch
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Hollande
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
