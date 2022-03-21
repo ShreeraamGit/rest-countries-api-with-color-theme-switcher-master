@@ -543,6 +543,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 16rem;
   }
 
+  .lg\:w-1\/6 {
+    width: 16.666667%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -588,6 +592,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 17rem;
   }
 
+  .xl\:w-36 {
+    width: 9rem;
+  }
+
+  .xl\:w-40 {
+    width: 10rem;
+  }
+
   .xl\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -596,6 +608,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .\32xl\:w-\[19rem\] {
     width: 19rem;
+  }
+
+  .\32xl\:w-3\.5 {
+    width: 0.875rem;
+  }
+
+  .\32xl\:w-3 {
+    width: 0.75rem;
+  }
+
+  .\32xl\:w-36 {
+    width: 9rem;
+  }
+
+  .\32xl\:w-40 {
+    width: 10rem;
+  }
+
+  .\32xl\:w-44 {
+    width: 11rem;
   }
 }
 
