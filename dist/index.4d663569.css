@@ -416,13 +416,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 2rem;
 }.text-left {
   text-align: left;
-}.text-center {
-  text-align: center;
 }.font-main {
   font-family: Nunito Sans;
-}.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }.text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -432,8 +427,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}.font-semibold {
-  font-weight: 600;
 }.font-bold {
   font-weight: 700;
 }.font-medium {
