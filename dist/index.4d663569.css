@@ -466,6 +466,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }.font-bold {
   font-weight: 700;
 }.font-medium {
@@ -479,6 +485,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}.text-dark-gray {
+  --tw-text-opacity: 1;
+  color: hsl(0 0% 52% / var(--tw-text-opacity));
+}.text-v-dark-gray {
+  --tw-text-opacity: 1;
+  color: hsl(0 0% 98% / var(--tw-text-opacity));
 }.shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
