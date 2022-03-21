@@ -1,3 +1,4 @@
+import "regenerator-runtime/runtime";
 class AllCountriesView {
   _data;
   _parentElement = document.querySelector(".country-details-box");
@@ -14,7 +15,7 @@ class AllCountriesView {
   }
 
   _generateHtml() {
-    return `<a href="details.html" value="${this._data.countryName}">
+    return `<a class="country-link" href="details.html" value="${this._data.countryName}">
         <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
           <div class="country-flag h-2/4">
             <img class="h-full w-full rounded-t-md" src="${this._data.img}" alt="${this._data.countryName}-flag">

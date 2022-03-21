@@ -4,7 +4,7 @@ import allCountriesView from "./views/allCountriesView.js";
 import * as model from "./model.js";
 //import filterCountriesViews from "./view/filterCountriesViews";
 
-container = document.querySelector(".country-details-box");
+//container = document.querySelector(".country-details-box");
 
 const controlData = async function () {
   try {
