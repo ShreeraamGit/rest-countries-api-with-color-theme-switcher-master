@@ -48,3 +48,7 @@ const init = function () {
 };
 
 init();
+
+if (module.hot) {
+  module.hot.accept();
+}

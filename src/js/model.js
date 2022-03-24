@@ -9,6 +9,9 @@ export const state = {
     query: "",
     searchresults: [],
   },
+  countrySelection: {
+    selectionResult: [],
+  },
 };
 
 export const loadData = async function () {
@@ -56,4 +59,19 @@ export const loadFilterData = async function (filterValue) {
   }
 };
 
+export const loadEachCountryDetail = async function (countryName) {
+  try {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/name/${countryName}`
+    );
+    if (!response.ok) throw new Error("Problem Getting country data");
+    const data = await response.json();
+    //console.log(data);
+    state.countrySelection.selectionResult = data;
+    //console.log(state.countrySelection.selectionResult);
+  } catch (err) {
+    console.error(err);
+  }
+};
 //loadFilterData("europe");
+loadEachCountryDetail("france");

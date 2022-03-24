@@ -167,8 +167,7 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
         if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
             if (it) o = it;
             var i = 0;
-            var F = function F() {
-            };
+            var F = function F() {};
             return {
                 s: F,
                 n: function n() {
@@ -265,8 +264,7 @@ function Module(moduleName) {
         _acceptCallbacks: [],
         _disposeCallbacks: [],
         accept: function accept(fn) {
-            this._acceptCallbacks.push(fn || function() {
-            });
+            this._acceptCallbacks.push(fn || function() {});
         },
         dispose: function dispose(fn) {
             this._disposeCallbacks.push(fn);
@@ -275,7 +273,7 @@ function Module(moduleName) {
     module.bundle.hotData = undefined;
 }
 module.bundle.Module = Module;
-var checkedAssets, acceptedAssets, assetsToAccept;
+var checkedAssets, acceptedAssets, assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
 function getHostname() {
     return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
 }
@@ -289,10 +287,8 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
     var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
     var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
     ws.onmessage = function(event) {
-        checkedAssets = {
-        };
-        acceptedAssets = {
-        };
+        checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        acceptedAssets = {} /*: {|[string]: boolean|} */ ;
         assetsToAccept = [];
         var data = JSON.parse(event.data);
         if (data.type === 'update') {
@@ -499,8 +495,7 @@ function hmrAcceptCheckOne(bundle, id, depsByBundle) {
 }
 function hmrAcceptRun(bundle, id) {
     var cached = bundle.cache[id];
-    bundle.hotData = {
-    };
+    bundle.hotData = {};
     if (cached && cached.hot) cached.hot.data = bundle.hotData;
     if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
         cb(bundle.hotData);
@@ -565,6 +560,7 @@ const init = function() {
     controlFilterAndGetValue();
 };
 init();
+if (module.hot) module.hot.accept();
 
 },{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
 /**
@@ -576,8 +572,7 @@ init();
     var Op = Object.prototype;
     var hasOwn = Op.hasOwnProperty;
     var undefined; // More compressible than void 0.
-    var $Symbol = typeof Symbol === "function" ? Symbol : {
-    };
+    var $Symbol = typeof Symbol === "function" ? Symbol : {};
     var iteratorSymbol = $Symbol.iterator || "@@iterator";
     var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
     var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
@@ -592,8 +587,7 @@ init();
     }
     try {
         // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-        define({
-        }, "");
+        define({}, "");
     } catch (err1) {
         define = function(obj, key, value) {
             return obj[key] = value;
@@ -639,22 +633,17 @@ init();
     var GenStateCompleted = "completed";
     // Returning this object from the innerFn has the same effect as
     // breaking out of the dispatch switch statement.
-    var ContinueSentinel = {
-    };
+    var ContinueSentinel = {};
     // Dummy constructor functions that we use as the .constructor and
     // .constructor.prototype properties for functions that return Generator
     // objects. For full spec compliance, you may wish to configure your
     // minifier not to mangle the names of these two functions.
-    function Generator() {
-    }
-    function GeneratorFunction() {
-    }
-    function GeneratorFunctionPrototype() {
-    }
+    function Generator() {}
+    function GeneratorFunction() {}
+    function GeneratorFunctionPrototype() {}
     // This is a polyfill for %IteratorPrototype% for environments that
     // don't natively support it.
-    var IteratorPrototype = {
-    };
+    var IteratorPrototype = {};
     define(IteratorPrototype, iteratorSymbol, function() {
         return this;
     });
@@ -916,8 +905,7 @@ init();
         this.tryEntries.push(entry);
     }
     function resetTryEntry(entry) {
-        var record = entry.completion || {
-        };
+        var record = entry.completion || {};
         record.type = "normal";
         delete record.arg;
         entry.completion = record;
@@ -1059,8 +1047,7 @@ init();
             if (finallyEntry && (type === "break" || type === "continue") && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc) // Ignore the finally entry if control is not jumping to a
             // location outside the try/catch block.
             finallyEntry = null;
-            var record = finallyEntry ? finallyEntry.completion : {
-            };
+            var record = finallyEntry ? finallyEntry.completion : {};
             record.type = type;
             record.arg = arg;
             if (finallyEntry) {
@@ -1123,12 +1110,7 @@ init();
     // regeneratorRuntime in the outer scope, which allows this module to be
     // injected easily by `bin/regenerator --include-runtime script.js`.
     return exports;
-}(// If this script is executing as a CommonJS module, use module.exports
-// as the regeneratorRuntime namespace. Otherwise create a new empty
-// object. Either way, the resulting object will be used to initialize
-// the regeneratorRuntime variable at the top of this file.
-typeof module === "object" ? module.exports : {
-});
+}(module.exports);
 try {
     regeneratorRuntime = runtime;
 } catch (accidentalStrictMode) {
@@ -1192,7 +1174,7 @@ class AllCountriesView {
 }
 exports.default = new AllCountriesView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","regenerator-runtime/runtime":"dXNgZ"}],"gkKU3":[function(require,module,exports) {
+},{"regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -1231,6 +1213,8 @@ parcelHelpers.export(exports, "loadData", ()=>loadData
 );
 parcelHelpers.export(exports, "loadFilterData", ()=>loadFilterData
 );
+parcelHelpers.export(exports, "loadEachCountryDetail", ()=>loadEachCountryDetail
+);
 var _regeneratorRuntime = require("regenerator-runtime");
 var _runtime = require("regenerator-runtime/runtime");
 const state = {
@@ -1240,6 +1224,9 @@ const state = {
     search: {
         query: "",
         searchresults: []
+    },
+    countrySelection: {
+        selectionResult: []
     }
 };
 const loadData = async function() {
@@ -1282,7 +1269,21 @@ const loadFilterData = async function(filterValue) {
         console.error(`${err}`);
         throw err;
     }
-}; //loadFilterData("europe");
+};
+const loadEachCountryDetail = async function(countryName) {
+    try {
+        const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+        if (!response.ok) throw new Error("Problem Getting country data");
+        const data = await response.json();
+        //console.log(data);
+        state.countrySelection.selectionResult = data;
+    //console.log(state.countrySelection.selectionResult);
+    } catch (err) {
+        console.error(err);
+    }
+};
+//loadFilterData("europe");
+loadEachCountryDetail("france");
 
 },{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
 
