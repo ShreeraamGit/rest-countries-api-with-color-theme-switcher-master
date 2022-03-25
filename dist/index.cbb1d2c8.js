@@ -555,7 +555,24 @@ const controlFilterAndGetValue = async function() {
         controlFilterData();
     });
 };
-const init = function() {
+/*
+const container = document.querySelector(".country-details-box");
+container.addEventListener("click", function (e) {
+  e.preventDefault();
+  const clickedLink = e.target.closest(".country-link");
+  if (!clickedLink) return;
+  //window.location.href = "details.html";
+  const countryName = clickedLink.getAttribute("value");
+  //window.location.href = "details.html";
+  console.log(countryName);
+
+  const controlCountrySelectionData = async function (countryName) {
+    await model.loadEachCountryDetail(countryName);
+    //console.log(model.state.countrySelection.selectionResult);
+  };
+  controlCountrySelectionData(countryName);
+});
+*/ const init = function() {
     controlData();
     controlFilterAndGetValue();
 };
@@ -1276,14 +1293,25 @@ const loadEachCountryDetail = async function(countryName) {
         if (!response.ok) throw new Error("Problem Getting country data");
         const data = await response.json();
         //console.log(data);
-        state.countrySelection.selectionResult = data;
-    //console.log(state.countrySelection.selectionResult);
+        state.countrySelection.selectionResult = data.map((el)=>{
+            return {
+                countryName: el.name.common,
+                region: el.region,
+                capital: el.capital,
+                population: el.population.toLocaleString(),
+                img: el.flags.png,
+                subRegion: el.subregion,
+                tld: el.tld,
+                currencies: Object.values(el.currencies)[0].name,
+                languages: Object.values(el.languages)
+            };
+        });
+        console.log(state.countrySelection.selectionResult);
     } catch (err) {
         console.error(err);
     }
-};
-//loadFilterData("europe");
-loadEachCountryDetail("france");
+}; //loadFilterData("europe");
+ //loadEachCountryDetail("tanzania");
 
 },{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
 

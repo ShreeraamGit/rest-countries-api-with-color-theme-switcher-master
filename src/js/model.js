@@ -67,11 +67,24 @@ export const loadEachCountryDetail = async function (countryName) {
     if (!response.ok) throw new Error("Problem Getting country data");
     const data = await response.json();
     //console.log(data);
-    state.countrySelection.selectionResult = data;
-    //console.log(state.countrySelection.selectionResult);
+    state.countrySelection.selectionResult = data.map((el) => {
+      return {
+        countryName: el.name.common,
+        region: el.region,
+        capital: el.capital,
+        population: el.population.toLocaleString(),
+        img: el.flags.png,
+        subRegion: el.subregion,
+        tld: el.tld,
+        currencies: Object.values(el.currencies)[0].name,
+        languages: Object.values(el.languages),
+      };
+    });
+
+    console.log(state.countrySelection.selectionResult);
   } catch (err) {
     console.error(err);
   }
 };
 //loadFilterData("europe");
-loadEachCountryDetail("france");
+//loadEachCountryDetail("tanzania");

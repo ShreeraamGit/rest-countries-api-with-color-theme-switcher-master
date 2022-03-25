@@ -42,6 +42,24 @@ const controlFilterAndGetValue = async function () {
   });
 };
 
+/*
+const container = document.querySelector(".country-details-box");
+container.addEventListener("click", function (e) {
+  e.preventDefault();
+  const clickedLink = e.target.closest(".country-link");
+  if (!clickedLink) return;
+  //window.location.href = "details.html";
+  const countryName = clickedLink.getAttribute("value");
+  //window.location.href = "details.html";
+  console.log(countryName);
+
+  const controlCountrySelectionData = async function (countryName) {
+    await model.loadEachCountryDetail(countryName);
+    //console.log(model.state.countrySelection.selectionResult);
+  };
+  controlCountrySelectionData(countryName);
+});
+*/
 const init = function () {
   controlData();
   controlFilterAndGetValue();
