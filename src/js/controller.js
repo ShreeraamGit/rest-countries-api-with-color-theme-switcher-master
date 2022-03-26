@@ -1,6 +1,7 @@
 import { async } from "regenerator-runtime";
 import "regenerator-runtime/runtime";
 import allCountriesView from "./views/allCountriesView.js";
+import eachCountriesView from "./views/eachCountriesView.js";
 import * as model from "./model.js";
 //import filterCountriesViews from "./view/filterCountriesViews";
 
@@ -9,7 +10,7 @@ import * as model from "./model.js";
 const controlData = async function () {
   try {
     await model.loadData();
-    ///console.log(model.state.countryData.allResults);
+    //console.log(model.state.countryData.allResults);
     model.state.countryData.allResults.forEach((element) => {
       allCountriesView.render(element);
     });
@@ -42,27 +43,18 @@ const controlFilterAndGetValue = async function () {
   });
 };
 
-/*
-const container = document.querySelector(".country-details-box");
-container.addEventListener("click", function (e) {
-  e.preventDefault();
-  const clickedLink = e.target.closest(".country-link");
-  if (!clickedLink) return;
-  //window.location.href = "details.html";
-  const countryName = clickedLink.getAttribute("value");
-  //window.location.href = "details.html";
-  console.log(countryName);
+const controlGetCountryName = async function (countryName) {
+  await model.loadEachCountryDetail(countryName);
+  //console.log(model.state.countrySelection.selectionResult[0]);
+  eachCountriesView.renderEachCountryPage(
+    model.state.countrySelection.selectionResult[0]
+  );
+};
 
-  const controlCountrySelectionData = async function (countryName) {
-    await model.loadEachCountryDetail(countryName);
-    //console.log(model.state.countrySelection.selectionResult);
-  };
-  controlCountrySelectionData(countryName);
-});
-*/
 const init = function () {
   controlData();
   controlFilterAndGetValue();
+  eachCountriesView.addHandlerGetCountry(controlGetCountryName);
 };
 
 init();

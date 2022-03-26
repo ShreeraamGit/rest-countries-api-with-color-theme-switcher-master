@@ -519,13 +519,15 @@ var _regeneratorRuntime = require("regenerator-runtime");
 var _runtime = require("regenerator-runtime/runtime");
 var _allCountriesViewJs = require("./views/allCountriesView.js");
 var _allCountriesViewJsDefault = parcelHelpers.interopDefault(_allCountriesViewJs);
+var _eachCountriesViewJs = require("./views/eachCountriesView.js");
+var _eachCountriesViewJsDefault = parcelHelpers.interopDefault(_eachCountriesViewJs);
 var _modelJs = require("./model.js");
 //import filterCountriesViews from "./view/filterCountriesViews";
 //container = document.querySelector(".country-details-box");
 const controlData = async function() {
     try {
         await _modelJs.loadData();
-        ///console.log(model.state.countryData.allResults);
+        //console.log(model.state.countryData.allResults);
         _modelJs.state.countryData.allResults.forEach((element)=>{
             _allCountriesViewJsDefault.default.render(element);
         });
@@ -555,31 +557,20 @@ const controlFilterAndGetValue = async function() {
         controlFilterData();
     });
 };
-/*
-const container = document.querySelector(".country-details-box");
-container.addEventListener("click", function (e) {
-  e.preventDefault();
-  const clickedLink = e.target.closest(".country-link");
-  if (!clickedLink) return;
-  //window.location.href = "details.html";
-  const countryName = clickedLink.getAttribute("value");
-  //window.location.href = "details.html";
-  console.log(countryName);
-
-  const controlCountrySelectionData = async function (countryName) {
-    await model.loadEachCountryDetail(countryName);
-    //console.log(model.state.countrySelection.selectionResult);
-  };
-  controlCountrySelectionData(countryName);
-});
-*/ const init = function() {
+const controlGetCountryName = async function(countryName) {
+    await _modelJs.loadEachCountryDetail(countryName);
+    //console.log(model.state.countrySelection.selectionResult[0]);
+    _eachCountriesViewJsDefault.default.renderEachCountryPage(_modelJs.state.countrySelection.selectionResult[0]);
+};
+const init = function() {
     controlData();
     controlFilterAndGetValue();
+    _eachCountriesViewJsDefault.default.addHandlerGetCountry(controlGetCountryName);
 };
 init();
 if (module.hot) module.hot.accept();
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/eachCountriesView.js":"8mcX3"}],"dXNgZ":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -1161,7 +1152,7 @@ class AllCountriesView {
         this._parentElement.insertAdjacentHTML("afterbegin", markUp);
     }
     _generateHtml() {
-        return `<a class="country-link" href="details.html" value="${this._data.countryName}">
+        return `<a class="country-link" href="#" value="${this._data.countryName}">
         <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
           <div class="country-flag h-2/4">
             <img class="h-full w-full rounded-t-md" src="${this._data.img}" alt="${this._data.countryName}-flag">
@@ -1292,7 +1283,6 @@ const loadEachCountryDetail = async function(countryName) {
         const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
         if (!response.ok) throw new Error("Problem Getting country data");
         const data = await response.json();
-        //console.log(data);
         state.countrySelection.selectionResult = data.map((el)=>{
             return {
                 countryName: el.name.common,
@@ -1306,13 +1296,193 @@ const loadEachCountryDetail = async function(countryName) {
                 languages: Object.values(el.languages)
             };
         });
-        console.log(state.countrySelection.selectionResult);
+    //console.log(state.countrySelection.selectionResult[0]);
     } catch (err) {
         console.error(err);
     }
 }; //loadFilterData("europe");
  //loadEachCountryDetail("tanzania");
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8mcX3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _runtime = require("regenerator-runtime/runtime");
+//import icons from "url:../../../design/icons.svg";
+class EachCountriesView {
+    _data;
+    _parentElement = document.querySelector(".main-page");
+    _countriesContainer = document.querySelector(".country-details-box");
+    addHandlerGetCountry(handler) {
+        this._parentElement.addEventListener("click", function(e) {
+            e.preventDefault();
+            const clickedLink = e.target.closest(".country-link");
+            if (!clickedLink) return;
+            const countryName = clickedLink.getAttribute("value");
+            handler(countryName);
+        });
+    }
+    renderEachCountryPage(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        console.log(data);
+        const markUp = this._genrerateEachCountryMarkup(data);
+        this._clear();
+        this._parentElement.insertAdjacentHTML("afterbegin", markUp);
+    }
+    renderSpinner() {
+        const markup = `
+    <div class="spinner">
+      <svg>
+        <use href="${icons}#icon-loader"></use>
+      </svg>
+    </div>`;
+        this._clear();
+        this._parentElement.insertAdjacentHTML("afterbegin", markup);
+    }
+    _clear() {
+        this._parentElement.innerHTML = "";
+    }
+    _genrerateEachCountryMarkup(data) {
+        return `<div class="button-back mt-28">
+      <a href="index.html">
+        <button
+          class="border-none drop-shadow-lg w-2/6 lg:w-1/6 xl:w-40 2xl:w-44 bg-dark-blue"
+        >
+          <div class="arrow-left-content p-1 flex flex-row justify-around">
+            <svg
+              class="h-5 w-5 text-white"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path
+                d="M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z"
+              />
+            </svg>
+            <h1 class="left-title text-white">Back</h1>
+          </div>
+        </button>
+      </a>
+    </div>
+    <div
+        class="country-details flex flex-col lg:flex-row lg:justify-between h-fit w-full mt-14"
+      >
+        <div class="country-flag">
+          <img
+            class="h-full w-full lg:h-[20rem] lg:w-[26rem] xl:w-[27rem] 2xl:w-[27rem] rounded-t-md"
+            src="${data.img}"
+            alt="${data.countryName}-flag"
+          />
+        </div>
+        <div
+          class="country-details-content text-white mt-14 lg:w-[28rem] xl:w-[46.5rem] 2xl:w-[59rem] lg:mt-0"
+          id="country-details-content"
+        >
+          <h1 class="country-name lg:mb-0 text-2xl font-bold">${data.countryName}</h1>
+          <div
+            class="both-content border border-black lg:w-full flex flex-col lg:flex-row lg:justify-start items-start"
+          >
+            <div
+              class="content-1 border border-black lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
+            >
+              <h1 class="nativ-name mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm xl:text-base 2xl:text-lg text-white"
+                  >Native Name: </span
+                >${data.countryName}
+              </h1>
+              <h1 class="Population mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Population: </span
+                >${data.population}
+              </h1>
+              <h1 class="Region mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Region: </span
+                >${data.region}
+              </h1>
+              <h1 class="Sub-region mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Sub Region: </span
+                >${data.subRegion}
+              </h1>
+              <h1 class="Capital mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Capital: </span
+                >${data.capital}
+              </h1>
+            </div>
+            <div class="content-2 mt-8 lg:mt-5 lg:w-2/4">
+              <h1 class="domain mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Top Level Domain: </span
+                >${data.tld}
+              </h1>
+              <h1 class="Currencies mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Currencies: </span
+                >${data.currencies}
+              </h1>
+              <h1 class="languages mb-3 text-dark-gray">
+                <span
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  >Languages: </span
+                >${data.languages}
+              </h1>
+            </div>
+          </div>
+          <div
+            class="border-countries mt-8 mb-8 lg:mb-0 lg:mt-5 flex flex-col lg:flex-row lg:justify-start"
+          >
+            <h1 class="border-title lg:mr-4 xl:mr-4">Border Countries:</h1>
+            <div
+              class="countries-list lg:w-4/6 xl:w-3/4 flex flex-row flex-wrap justify-evenly mt-5 lg:mt-0 text-lg lg:text-sm 2xl:text-lg xl:text-base"
+            >
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                France
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Poland
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Belgium
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Swiss
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Chezch
+              </h1>
+              <h1
+                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+              >
+                Hollande
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+}
+exports.default = new EachCountriesView();
+
+},{"regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
 
 //# sourceMappingURL=index.cbb1d2c8.js.map
