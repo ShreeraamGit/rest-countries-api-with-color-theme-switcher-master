@@ -66,6 +66,7 @@ export const loadEachCountryDetail = async function (countryName) {
     );
     if (!response.ok) throw new Error("Problem Getting country data");
     const data = await response.json();
+    //console.log(data);
     state.countrySelection.selectionResult = data.map((el) => {
       return {
         countryName: el.name.common,

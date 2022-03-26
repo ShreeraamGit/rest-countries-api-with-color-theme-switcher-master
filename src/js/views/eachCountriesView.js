@@ -20,7 +20,7 @@ class EachCountriesView {
       return this.renderError();
     }
     this._data = data;
-    console.log(data);
+    //console.log(data);
     const markUp = this._genrerateEachCountryMarkup(data);
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markUp);
@@ -81,7 +81,7 @@ class EachCountriesView {
             class="both-content border border-black lg:w-full flex flex-col lg:flex-row lg:justify-start items-start"
           >
             <div
-              class="content-1 border border-black lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
+              class="content-1 border border-black lg:pl-10 lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
             >
               <h1 class="nativ-name mb-3 text-dark-gray">
                 <span
