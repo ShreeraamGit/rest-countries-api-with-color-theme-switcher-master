@@ -559,7 +559,7 @@ const controlFilterAndGetValue = async function() {
 };
 const controlGetCountryName = async function(countryName) {
     await _modelJs.loadEachCountryDetail(countryName);
-    //console.log(model.state.countrySelection.selectionResult[0]);
+    //console.log(model.state.countrySelection.selectionResult[0].borders);
     _eachCountriesViewJsDefault.default.renderEachCountryPage(_modelJs.state.countrySelection.selectionResult[0]);
 };
 const init = function() {
@@ -1181,6 +1181,7 @@ class AllCountriesView {
     }
 }
 exports.default = new AllCountriesView();
+if (module.hot) module.hot.accept();
 
 },{"regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -1294,15 +1295,16 @@ const loadEachCountryDetail = async function(countryName) {
                 subRegion: el.subregion,
                 tld: el.tld,
                 currencies: Object.values(el.currencies)[0].name,
-                languages: Object.values(el.languages)
+                languages: Object.values(el.languages),
+                borders: el.borders
             };
         });
     //console.log(state.countrySelection.selectionResult[0]);
     } catch (err) {
         console.error(err);
     }
-}; //loadFilterData("europe");
- //loadEachCountryDetail("tanzania");
+};
+if (module.hot) module.hot.accept();
 
 },{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8mcX3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1382,10 +1384,10 @@ class EachCountriesView {
         >
           <h1 class="country-name lg:mb-0 text-2xl font-bold">${data.countryName}</h1>
           <div
-            class="both-content border border-black lg:w-full flex flex-col lg:flex-row lg:justify-start items-start"
+            class="both-content lg:w-full flex flex-col lg:flex-row lg:justify-start items-start"
           >
             <div
-              class="content-1 border border-black lg:pl-10 lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
+              class="content-1 lg:pr-28 lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
             >
               <h1 class="nativ-name mb-3 text-dark-gray">
                 <span
@@ -1442,44 +1444,44 @@ class EachCountriesView {
           <div
             class="border-countries mt-8 mb-8 lg:mb-0 lg:mt-5 flex flex-col lg:flex-row lg:justify-start"
           >
-            <h1 class="border-title lg:mr-4 xl:mr-4">Border Countries:</h1>
-            <div
-              class="countries-list lg:w-4/6 xl:w-3/4 flex flex-row flex-wrap justify-evenly mt-5 lg:mt-0 text-lg lg:text-sm 2xl:text-lg xl:text-base"
-            >
-              <h1
-                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-              >
-                France
-              </h1>
-              <h1
-                class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
-              >
-                Poland
-              </h1>
-              <h1
-                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-              >
-                Belgium
-              </h1>
-              <h1
-                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-              >
-                Swiss
-              </h1>
-              <h1
-                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-              >
-                Chezch
-              </h1>
-              <h1
-                class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-              >
-                Hollande
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>`;
+          <h1 class="border-title lg:mr-4 xl:mr-4">Border Countries:</h1>
+    <div
+      class="countries-list lg:w-4/6 xl:w-3/4 flex flex-row flex-wrap justify-evenly mt-5 lg:mt-0 text-lg lg:text-sm 2xl:text-lg xl:text-base"
+    >
+      <h1
+        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+      >
+        France
+      </h1>
+      <h1
+        class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
+      >
+        Poland
+      </h1>
+      <h1
+        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+      >
+        Belgium
+      </h1>
+      <h1
+        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+      >
+        Swiss
+      </h1>
+      <h1
+        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+      >
+        Chezch
+      </h1>
+      <h1
+        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+      >
+        Hollande
+      </h1>
+    </div>
+  </div>
+</div>
+</div>`;
     }
 }
 exports.default = new EachCountriesView();

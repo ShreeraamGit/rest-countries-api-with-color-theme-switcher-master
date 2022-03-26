@@ -766,8 +766,12 @@ img, video {
     padding-right: 2.5rem;
   }
 
-  .lg\:pl-10 {
-    padding-left: 2.5rem;
+  .lg\:pr-28 {
+    padding-right: 7rem;
+  }
+
+  .lg\:pr-16 {
+    padding-right: 4rem;
   }
 
   .lg\:text-xl {

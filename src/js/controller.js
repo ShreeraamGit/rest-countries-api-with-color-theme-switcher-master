@@ -45,7 +45,7 @@ const controlFilterAndGetValue = async function () {
 
 const controlGetCountryName = async function (countryName) {
   await model.loadEachCountryDetail(countryName);
-  //console.log(model.state.countrySelection.selectionResult[0]);
+  //console.log(model.state.countrySelection.selectionResult[0].borders);
   eachCountriesView.renderEachCountryPage(
     model.state.countrySelection.selectionResult[0]
   );

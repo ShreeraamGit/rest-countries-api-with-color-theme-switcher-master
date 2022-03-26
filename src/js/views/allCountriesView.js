@@ -45,3 +45,7 @@ class AllCountriesView {
 }
 
 export default new AllCountriesView();
+
+if (module.hot) {
+  module.hot.accept();
+}

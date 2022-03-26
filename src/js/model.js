@@ -78,6 +78,7 @@ export const loadEachCountryDetail = async function (countryName) {
         tld: el.tld,
         currencies: Object.values(el.currencies)[0].name,
         languages: Object.values(el.languages),
+        borders: el.borders,
       };
     });
     //console.log(state.countrySelection.selectionResult[0]);
@@ -85,5 +86,7 @@ export const loadEachCountryDetail = async function (countryName) {
     console.error(err);
   }
 };
-//loadFilterData("europe");
-//loadEachCountryDetail("tanzania");
+
+if (module.hot) {
+  module.hot.accept();
+}
