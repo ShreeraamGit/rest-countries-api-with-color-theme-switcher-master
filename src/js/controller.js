@@ -3,7 +3,9 @@ import "regenerator-runtime/runtime";
 import allCountriesView from "./views/allCountriesView.js";
 import eachCountriesView from "./views/eachCountriesView.js";
 import searchView from "./views/searchView.js";
+import darkLightModeView from "./views/darkLightModeView.js";
 import * as model from "./model.js";
+
 //import filterCountriesViews from "./view/filterCountriesViews";
 
 //container = document.querySelector(".country-details-box");
@@ -69,11 +71,16 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlDarkLightMode = function () {
+  darkLightModeView.changeDarkLightMode();
+};
+
 const init = function () {
   controlData();
   controlFilterAndGetValue();
   eachCountriesView.addHandlerGetCountry(controlGetCountryName);
   searchView.addHandlerSearch(controlSearchResults);
+  darkLightModeView.addHandlerDarkLightMode(controlDarkLightMode);
 };
 
 init();

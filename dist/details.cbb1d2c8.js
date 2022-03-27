@@ -523,6 +523,8 @@ var _eachCountriesViewJs = require("./views/eachCountriesView.js");
 var _eachCountriesViewJsDefault = parcelHelpers.interopDefault(_eachCountriesViewJs);
 var _searchViewJs = require("./views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
+var _darkLightModeViewJs = require("./views/darkLightModeView.js");
+var _darkLightModeViewJsDefault = parcelHelpers.interopDefault(_darkLightModeViewJs);
 var _modelJs = require("./model.js");
 //import filterCountriesViews from "./view/filterCountriesViews";
 //container = document.querySelector(".country-details-box");
@@ -580,16 +582,20 @@ const controlSearchResults = async function() {
         console.error(err);
     }
 };
+const controlDarkLightMode = function() {
+    _darkLightModeViewJsDefault.default.changeDarkLightMode();
+};
 const init = function() {
     controlData();
     controlFilterAndGetValue();
     _eachCountriesViewJsDefault.default.addHandlerGetCountry(controlGetCountryName);
     _searchViewJsDefault.default.addHandlerSearch(controlSearchResults);
+    _darkLightModeViewJsDefault.default.addHandlerDarkLightMode(controlDarkLightMode);
 };
 init();
 if (module.hot) module.hot.accept();
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./views/eachCountriesView.js":"8mcX3","./views/searchView.js":"9OQAM","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./views/eachCountriesView.js":"8mcX3","./views/searchView.js":"9OQAM","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/darkLightModeView.js":"j8tuM"}],"dXNgZ":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -1497,6 +1503,50 @@ const loadEachCountryDetail = async function(countryName) {
 };
 if (module.hot) module.hot.accept();
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j8tuM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class DarkLightView {
+    _htmlElement = document.querySelector(".top-class");
+    _darkLightModeButton = document.querySelector(".darkLight__mode");
+    _darkSvg = document.querySelector(".dark-svg");
+    _lightSvg = document.querySelector(".light-svg");
+    _darkText = document.querySelector(".dark-text");
+    _lightText = document.querySelector(".light-text");
+    changeDarkLightMode() {
+        this._lightSvg.classList.toggle("hidden");
+        this._darkSvg.classList.toggle("hidden");
+        this._lightText.classList.toggle("hidden");
+        this._darkText.classList.toggle("hidden");
+        this._htmlElement.classList.toggle("dark");
+    }
+    addHandlerDarkLightMode(handler) {
+        this._darkLightModeButton.addEventListener("click", function() {
+            handler();
+        });
+    }
+}
+exports.default = new DarkLightView(); /*
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
+// Whenever the user explicitly chooses light mode
+localStorage.theme = "light";
+
+// Whenever the user explicitly chooses dark mode
+localStorage.theme = "dark";
+
+// Whenever the user explicitly chooses to respect the OS preference
+localStorage.removeItem("theme");
+*/ 
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
 
 //# sourceMappingURL=details.cbb1d2c8.js.map

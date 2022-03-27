@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html class="dark">
+<html class="top-class dark">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,9 +25,9 @@
       <div class="nav-logo">
         <a class="cursor-pointer font-extrabold text-lg lg:text-xl xl:text-2xl" href="#main">Where in world?</a>
       </div>
-      <div class="flex flex-row">
+      <button class="darkLight__mode flex flex-row justify-center items-center">
         <svg
-          class="w-5 h-5 lg:w-6 lg:h-6 mr-4 dark:text-v-dark-gray text-dark-blue"
+          class="dark-svg w-5 h-5 lg:w-6 hidden lg:h-6 mr-4 dark:text-v-dark-gray text-dark-blue"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 32 32"
@@ -38,7 +38,7 @@
           />
         </svg>
         <svg
-          class="w-5 h-5 lg:w-6 lg:h-6 mr-4 hidden dark:text-v-dark-gray text-dark-blue"
+          class="light-svg w-5 h-5 lg:w-6 lg:h-6 mr-4 dark:text-v-dark-gray text-dark-blue"
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 32 32"
           fill="currentColor"
@@ -49,9 +49,9 @@
             d="M17.5 4.13867V2c0-.82813-.67139-1.5-1.5-1.5S14.5 1.17188 14.5 2v2.13867c0 .82813.67139 1.5 1.5 1.5S17.5 4.9668 17.5 4.13867zM8.67383 8.67285c.58545-.58594.58545-1.53613-.00049-2.12109L7.16113 5.04004c-.58594-.58594-1.53564-.58594-2.12158 0C4.4541 5.62598 4.4541 6.57617 5.04004 7.16113l1.51221 1.51172C6.84521 8.96582 7.229 9.1123 7.61279 9.1123S8.38086 8.96582 8.67383 8.67285zM2 17.5h2.13818c.82861 0 1.5-.67188 1.5-1.5s-.67139-1.5-1.5-1.5H2c-.82861 0-1.5.67188-1.5 1.5S1.17139 17.5 2 17.5zM5.03955 26.95996c.29297.29297.67725.43945 1.06104.43945s.76758-.14648 1.06055-.43945l1.51221-1.51172c.58594-.58496.58594-1.53516.00049-2.12109-.58594-.58594-1.53564-.58594-2.12158 0l-1.51221 1.51172C4.4541 25.42383 4.4541 26.37402 5.03955 26.95996zM14.5 27.86133V30c0 .82813.67139 1.5 1.5 1.5s1.5-.67188 1.5-1.5v-2.13867c0-.82813-.67139-1.5-1.5-1.5S14.5 27.0332 14.5 27.86133zM24.83887 26.95996c.29297.29297.67676.43945 1.06055.43945s.76758-.14648 1.06055-.43945c.58594-.58594.58594-1.53516 0-2.12109l-1.51172-1.51172c-.58594-.58594-1.53516-.58594-2.12109 0s-.58594 1.53516 0 2.12109L24.83887 26.95996zM30 14.5h-2.13867c-.82813 0-1.5.67188-1.5 1.5s.67188 1.5 1.5 1.5H30c.82813 0 1.5-.67188 1.5-1.5S30.82813 14.5 30 14.5zM26.95996 5.04004c-.58594-.58594-1.53516-.58594-2.12109 0l-1.51172 1.51172c-.58594.58594-.58594 1.53516 0 2.12109.29297.29297.67676.43945 1.06055.43945s.76758-.14648 1.06055-.43945l1.51172-1.51172C27.5459 6.5752 27.5459 5.62598 26.95996 5.04004z"
           />
         </svg>
-        <h1 class="cursor-pointer text-sm lg:text-xl xl:text-2xl">Dark Mode</h1>
-        <h1 class="hidden cursor-pointer text-sm lg:text-xl xl:text-2xl">Light Mode</h1>
-      </div>
+        <h1 class="dark-text hidden cursor-pointer text-sm lg:text-xl xl:text-2xl">Dark Mode</h1>
+        <h1 class="light-text cursor-pointer text-sm lg:text-xl xl:text-2xl">Light Mode</h1>
+      </button>
     </header>
     <main class="main-page bg-v-dark-gray dark:bg-v-dark-blue-dark mt-0 min-h-screen p-4 lg:px-10">
       <div
