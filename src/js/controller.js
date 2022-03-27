@@ -2,6 +2,7 @@ import { async } from "regenerator-runtime";
 import "regenerator-runtime/runtime";
 import allCountriesView from "./views/allCountriesView.js";
 import eachCountriesView from "./views/eachCountriesView.js";
+import searchView from "./views/searchView.js";
 import * as model from "./model.js";
 //import filterCountriesViews from "./view/filterCountriesViews";
 
@@ -44,17 +45,35 @@ const controlFilterAndGetValue = async function () {
 };
 
 const controlGetCountryName = async function (countryName) {
-  await model.loadEachCountryDetail(countryName);
-  //console.log(model.state.countrySelection.selectionResult[0].borders);
-  eachCountriesView.renderEachCountryPage(
-    model.state.countrySelection.selectionResult[0]
-  );
+  try {
+    await model.loadEachCountryDetail(countryName);
+    //console.log(model.state.countrySelection.selectionResult[0].borders);
+    eachCountriesView.renderEachCountryPage(
+      model.state.countrySelection.selectionResult[0]
+    );
+  } catch (err) {
+    console.err(err);
+  }
+};
+
+const controlSearchResults = async function () {
+  try {
+    const query = searchView.getQuery();
+    if (!query) return;
+    await model.loadEachCountryDetail(query);
+    //console.log(model.state.countrySelection.selectionResult[0]);
+    searchView._clear();
+    allCountriesView.render(model.state.countrySelection.selectionResult[0]);
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 const init = function () {
   controlData();
   controlFilterAndGetValue();
   eachCountriesView.addHandlerGetCountry(controlGetCountryName);
+  searchView.addHandlerSearch(controlSearchResults);
 };
 
 init();

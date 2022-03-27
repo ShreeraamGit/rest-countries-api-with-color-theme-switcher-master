@@ -57,17 +57,17 @@
       <div
         class="searchbar-filter mt-28 flex flex-col lg:flex-row lg:justify-between lg:items-center"
       >
-        <div class="search-bar">
+        <form class="search-bar">
           <label for="search a country">
             <input
-              class="bg-dark-blue text-white border-none rounded-md h-10 lg:h-12 w-full px-14"
+              class="search__country bg-dark-blue text-white border-none rounded-md h-10 lg:h-12 w-full px-14"
               type="search"
               id="site-search"
               name="q"
               placeholder="Search for a country"
             />
           </label>
-        </div>
+        </form>
         <div class="filter-bar relative mt-10 lg:mt-0 inline-block text-left">
           <div>
             <button
@@ -153,7 +153,7 @@
           </div>
         </div>
       </div>
-      <div class="country-details-box mt-14 h-fit w-full px-6 flex flex-col lg:flex-row lg:flex-wrap lg:justify-around">
+      <div class="country-details-box mt-14 h-fit w-full px-6 flex flex-col lg:flex-row lg:flex-wrap lg:justify-between lg:items-start">
         <!--
           <a href="details.html" value="germany">
           <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
@@ -234,8 +234,7 @@
           </div>
         </a>
         -->
-      </div>
     </main>
-    <script type="module" src="/src/js/controller.js" async defer></script>
+      <script type="module" src="/src/js/controller.js" async defer></script>
   </body>
 </html>

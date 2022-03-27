@@ -7,7 +7,7 @@ class EachCountriesView {
 
   addHandlerGetCountry(handler) {
     this._parentElement.addEventListener("click", function (e) {
-      e.preventDefault();
+      //e.preventDefault();
       const clickedLink = e.target.closest(".country-link");
       if (!clickedLink) return;
       const countryName = clickedLink.getAttribute("value");
@@ -82,7 +82,7 @@ class EachCountriesView {
             class="both-content lg:w-full flex flex-col lg:flex-row lg:justify-start items-start"
           >
             <div
-              class="content-1 lg:pr-28 lg:w-fit mt-8 lg:mt-5 lg:text-xs xl:text-sm 2xl:text-base"
+              class="content-1 lg:pr-28 lg:w-fit mt-8 lg:mt-5 lg:text-sm xl:text-sm 2xl:text-base"
             >
               <h1 class="nativ-name mb-3 text-dark-gray">
                 <span
@@ -140,43 +140,43 @@ class EachCountriesView {
             class="border-countries mt-8 mb-8 lg:mb-0 lg:mt-5 flex flex-col lg:flex-row lg:justify-start"
           >
           <h1 class="border-title lg:mr-4 xl:mr-4">Border Countries:</h1>
-    <div
-      class="countries-list lg:w-4/6 xl:w-3/4 flex flex-row flex-wrap justify-evenly mt-5 lg:mt-0 text-lg lg:text-sm 2xl:text-lg xl:text-base"
-    >
-      <h1
-        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-      >
-        France
-      </h1>
-      <h1
-        class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
-      >
-        Poland
-      </h1>
-      <h1
-        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-      >
-        Belgium
-      </h1>
-      <h1
-        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-      >
-        Swiss
-      </h1>
-      <h1
-        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-      >
-        Chezch
-      </h1>
-      <h1
-        class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
-      >
-        Hollande
-      </h1>
-    </div>
-  </div>
-</div>
-</div>`;
+            <div
+              class="countries-list lg:w-4/6 xl:w-3/4 flex flex-row flex-wrap justify-evenly mt-5 lg:mt-0 text-lg lg:text-sm 2xl:text-lg xl:text-base"
+            >
+                  <h1
+                    class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    France
+                  </h1>
+                  <h1
+                    class="border-country-1 bg-dark-blue border border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    Poland
+                  </h1>
+                  <h1
+                    class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    Belgium
+                  </h1>
+                  <h1
+                    class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    Swiss
+                  </h1>
+                  <h1
+                    class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    Chezch
+                  </h1>
+                  <h1
+                    class="border-country-1 bg-dark-blue border-none rounded-lg p-2 px-5 mb-3"
+                  >
+                    Hollande
+                  </h1>
+            </div>
+          </div>
+      </div>
+  </div>`;
   }
 }
 export default new EachCountriesView();
