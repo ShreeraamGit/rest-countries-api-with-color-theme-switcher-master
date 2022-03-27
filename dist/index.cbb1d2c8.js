@@ -1253,7 +1253,7 @@ class EachCountriesView {
     renderEachCountryPage(data) {
         if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
         this._data = data;
-        //console.log(data);
+        console.log(data);
         const markUp = this._genrerateEachCountryMarkup(data);
         this._clear();
         this._parentElement.insertAdjacentHTML("afterbegin", markUp);

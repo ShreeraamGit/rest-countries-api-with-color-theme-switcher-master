@@ -20,7 +20,7 @@ class EachCountriesView {
       return this.renderError();
     }
     this._data = data;
-    //console.log(data);
+    console.log(data);
     const markUp = this._genrerateEachCountryMarkup(data);
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markUp);
