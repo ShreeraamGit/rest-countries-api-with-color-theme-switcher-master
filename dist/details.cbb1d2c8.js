@@ -589,7 +589,7 @@ const init = function() {
 init();
 if (module.hot) module.hot.accept();
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./views/eachCountriesView.js":"8mcX3","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/searchView.js":"9OQAM"}],"dXNgZ":[function(require,module,exports) {
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","./views/allCountriesView.js":"jKPz3","./views/eachCountriesView.js":"8mcX3","./views/searchView.js":"9OQAM","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -1171,16 +1171,16 @@ class AllCountriesView {
         this._parentElement.insertAdjacentHTML("afterbegin", markUp);
     }
     _generateHtml() {
-        return `<a class="country-link" href="#" value="${this._data.countryName}">
-        <div class="content-box h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-10">
+        return `<a class="country-link " href="#" value="${this._data.countryName}">
+        <div class="content-box drop-shadow-lg dark:border-none border h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-14">
           <div class="country-flag h-2/4">
             <img class="h-full w-full rounded-t-md" src="${this._data.img}" alt="${this._data.countryName}-flag">
           </div>
-          <div class="country-details rounded-b-md flex flex-col justify-center h-2/4 bg-dark-blue px-8 py-8">
-            <div class="text-white font-bold text-xl">${this._data.countryName}</div>
-            <div class="mt-5 text-white text-sm">Population: ${this._data.population}</div>
-            <div class="text-white mt-2 text-sm">Region: ${this._data.region}</div>
-            <div class="text-white mt-2 text-sm">Capital: ${this._data.capital}</div>
+          <div class="country-details drop-shadow-lg dark:border-none border rounded-b-md flex flex-col justify-center h-2/4 bg-v-dark-gray dark:bg-dark-blue px-8 py-8">
+            <div class="dark:text-white text-v-dark-blue font-bold text-xl">${this._data.countryName}</div>
+            <div class="mt-5 dark:text-white text-v-dark-blue text-sm">Population: ${this._data.population}</div>
+            <div class="dark:text-white text-v-dark-blue mt-2 text-sm">Region: ${this._data.region}</div>
+            <div class="dark:text-white text-v-dark-blue mt-2 text-sm">Capital: ${this._data.capital}</div>
           </div>
         </div>
       </a>`;
@@ -1275,11 +1275,11 @@ class EachCountriesView {
         return `<div class="button-back mt-28">
       <a href="index.html">
         <button
-          class="border-none drop-shadow-lg w-2/6 lg:w-1/6 xl:w-40 2xl:w-44 bg-dark-blue"
+          class="border-none drop-shadow-lg w-2/6 lg:w-1/6 xl:w-32 2xl:w-44 bg-v-dark-gray dark:bg-dark-blue"
         >
           <div class="arrow-left-content p-1 flex flex-row justify-around">
             <svg
-              class="h-5 w-5 text-white"
+              class="h-5 w-5 text-v-dark-blue dark:text-white"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -1289,7 +1289,7 @@ class EachCountriesView {
                 d="M447.1 256C447.1 273.7 433.7 288 416 288H109.3l105.4 105.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448s-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L109.3 224H416C433.7 224 447.1 238.3 447.1 256z"
               />
             </svg>
-            <h1 class="left-title text-white">Back</h1>
+            <h1 class="left-title text-v-dark-blue dark:text-white">Back</h1>
           </div>
         </button>
       </a>
@@ -1305,7 +1305,7 @@ class EachCountriesView {
           />
         </div>
         <div
-          class="country-details-content text-white mt-14 lg:w-[28rem] xl:w-[46.5rem] 2xl:w-[59rem] lg:mt-0"
+          class="country-details-content text-v-dark-blue dark:text-white mt-14 lg:w-[28rem] xl:w-[46.5rem] 2xl:w-[59rem] lg:mt-0"
           id="country-details-content"
         >
           <h1 class="country-name lg:mb-0 text-2xl font-bold">${data.countryName}</h1>
@@ -1315,53 +1315,53 @@ class EachCountriesView {
             <div
               class="content-1 lg:pr-28 lg:w-fit mt-8 lg:mt-5 lg:text-sm xl:text-sm 2xl:text-base"
             >
-              <h1 class="nativ-name mb-3 text-dark-gray">
+              <h1 class="nativ-name mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm xl:text-base 2xl:text-lg text-white"
+                  class="text-lg lg:text-sm xl:text-base 2xl:text-lg text-v-dark-blue dark:text-white"
                   >Native Name: </span
                 >${data.countryName}
               </h1>
-              <h1 class="Population mb-3 text-dark-gray">
+              <h1 class="Population mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Population: </span
                 >${data.population}
               </h1>
-              <h1 class="Region mb-3 text-dark-gray">
+              <h1 class="Region mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Region: </span
                 >${data.region}
               </h1>
-              <h1 class="Sub-region mb-3 text-dark-gray">
+              <h1 class="Sub-region mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Sub Region: </span
                 >${data.subRegion}
               </h1>
-              <h1 class="Capital mb-3 text-dark-gray">
+              <h1 class="Capital mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Capital: </span
                 >${data.capital}
               </h1>
             </div>
             <div class="content-2 mt-8 lg:mt-5 lg:w-2/4">
-              <h1 class="domain mb-3 text-dark-gray">
+              <h1 class="domain mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Top Level Domain: </span
                 >${data.tld}
               </h1>
-              <h1 class="Currencies mb-3 text-dark-gray">
+              <h1 class="Currencies mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Currencies: </span
                 >${data.currencies}
               </h1>
-              <h1 class="languages mb-3 text-dark-gray">
+              <h1 class="languages mb-3 text-v-dark-blue dark:text-white">
                 <span
-                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-white"
+                  class="text-lg lg:text-sm 2xl:text-lg xl:text-base text-v-dark-blue dark:text-white"
                   >Languages: </span
                 >${data.languages}
               </h1>
@@ -1378,7 +1378,33 @@ class EachCountriesView {
 }
 exports.default = new EachCountriesView();
 
-},{"regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+},{"regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9OQAM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class SearchView {
+    _parentElement = document.querySelector(".search-bar");
+    _countriesContainer = document.querySelector(".country-details-box");
+    getQuery() {
+        const query = this._parentElement.querySelector(".search__country").value;
+        this._clearInput();
+        return query;
+    }
+    _clearInput() {
+        this._parentElement.querySelector(".search__country").value = "";
+    }
+    _clear() {
+        this._countriesContainer.innerHTML = "";
+    }
+    addHandlerSearch(handler) {
+        this._parentElement.addEventListener("submit", function(e) {
+            e.preventDefault();
+            handler();
+        });
+    }
+}
+exports.default = new SearchView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state
@@ -1471,32 +1497,6 @@ const loadEachCountryDetail = async function(countryName) {
 };
 if (module.hot) module.hot.accept();
 
-},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9OQAM":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class SearchView {
-    _parentElement = document.querySelector(".search-bar");
-    _countriesContainer = document.querySelector(".country-details-box");
-    getQuery() {
-        const query = this._parentElement.querySelector(".search__country").value;
-        this._clearInput();
-        return query;
-    }
-    _clearInput() {
-        this._parentElement.querySelector(".search__country").value = "";
-    }
-    _clear() {
-        this._countriesContainer.innerHTML = "";
-    }
-    addHandlerSearch(handler) {
-        this._parentElement.addEventListener("submit", function(e) {
-            e.preventDefault();
-            handler();
-        });
-    }
-}
-exports.default = new SearchView();
+},{"regenerator-runtime":"dXNgZ","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["3cSUP","aenu9"], "aenu9", "parcelRequire94c2")
-
-//# sourceMappingURL=index.cbb1d2c8.js.map
+//# sourceMappingURL=details.cbb1d2c8.js.map
