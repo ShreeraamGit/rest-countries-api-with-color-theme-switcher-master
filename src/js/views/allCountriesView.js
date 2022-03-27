@@ -15,9 +15,9 @@ class AllCountriesView {
   }
 
   _generateHtml() {
-    return `<a class="country-link " href="#" value="${this._data.countryName}">
-        <div class="content-box drop-shadow-lg dark:border-none border h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-14">
-          <div class="country-flag h-2/4">
+    return `<a class="country-link" href="#" value="${this._data.countryName}">
+        <div class="content-box  h-[21rem] lg:h-[22rem] w-full lg:w-[16rem] xl:w-[17rem] 2xl:w-[19rem] mb-14">
+          <div class="country-flag dark:border-none border rounded-t-md h-2/4">
             <img class="h-full w-full rounded-t-md" src="${this._data.img}" alt="${this._data.countryName}-flag">
           </div>
           <div class="country-details drop-shadow-lg dark:border-none border rounded-b-md flex flex-col justify-center h-2/4 bg-v-dark-gray dark:bg-dark-blue px-8 py-8">
